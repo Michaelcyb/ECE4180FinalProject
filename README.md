@@ -2,13 +2,13 @@
 
 ## Team Members: Xiuyuan Sun, Yubo Cheng
 
-Watch our project demo on Youtube: [ECE 4180 Final Project Demo - YouTube](https://www.youtube.com/shorts/NgoWwHDYPSY)
+Watch our project demo on YouTube: [ECE 4180 Final Project Demo - YouTube](https://www.youtube.com/shorts/NgoWwHDYPSY)
 
 ## Project Idea
 
-An indoor delivery car is designed for the situation where your roommates want something for you, but you are lazy to walk to their room by foot. It has several advantages including low cost, simple circuit structure and easy programming.
+An indoor delivery car is designed for the situation where your roommates want something from you, but you are lazy to walk to their room by foot. It has several advantages including low cost, simple circuit structure and easy programming.
 
-The central control unit is Raspberry Pi 3. Our deliver car is driven by two wheels, with each driven by a DC motor. It can change direction by modulating the speed of each wheel. There is a camera module on the car to provide vision. There is a sonar sensor in the front of the car where it can tell you the distance between the car and the obstacle in case of camera lagging. This car can be controlled by our keyboard or simply by clicking the button on the website that we created.
+The central control unit is Raspberry Pi 3. Our delivery car is driven by two wheels, with each driven by a DC motor. It can change direction by modulating the speed of each wheel. There is a camera module on the car to provide vision. There is a sonar sensor in the front of the car where it can tell you the distance between the car and the obstacle in case of camera lagging. This car can be controlled by our keyboard or simply by clicking the button on the website that we created.
 
 ## Parts List
 
