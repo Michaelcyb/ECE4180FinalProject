@@ -1,8 +1,6 @@
-# ECE4180FinalProject
-Georgia Tech Fall 2023 Final Project
 # ECE4180 Final Project - Indoor Delivery Car
 
-### Team Members: Xiuyuan Sun, Yubo Cheng
+## Team Members: Xiuyuan Sun, Yubo Cheng
 
 Watch our project demo on Youtube: [ECE 4180 Final Project Demo - YouTube](https://www.youtube.com/shorts/NgoWwHDYPSY)
 
@@ -54,31 +52,31 @@ The central control unit is Raspberry Pi 3. Our deliver car is driven by two whe
 
 #### Top
 
-![image](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Top.jpg)
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Top.jpg" width="800px">
 
 #### Front
 
-![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Front.jpg" alt="Front" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Front.jpg)
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Front.jpg" width="800px">
 
 #### Back
 
-![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Back.jpg" alt="Back" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Back.jpg)
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Back.jpg" width="800px">
 
 #### Left
 
-![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Left.jpg" alt="Left" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Left.jpg)
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Left.jpg" width="800px">
 
 #### Right
 
-![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Right.jpg" alt="Right" style="zoom:10%;" />
-](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Right.jpg)
-### Control and Information Page
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Right.jpg" width="800px">
 
-![<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/ControlPage.png />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/ControlPage.png)
+#### Control and Information Page
+
+<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/ControlPage.png" width="800px">
 
 ## Source Code
 
-### CarControl.py
+### Car Control Code
 
 ```python
 from Distance import Measure
@@ -175,7 +173,7 @@ class Car:
 GPIO.setwarnings(False)
 ```
 
-### Distance.py
+### Distance Measurement Code
 
 ```python
 import RPi.GPIO as GPIO
@@ -230,7 +228,7 @@ class Measure:
 GPIO.setwarnings(False)
 ```
 
-### MotorControl.py
+### Motor Control Code
 
 ```python
 import RPi.GPIO as GPIO
@@ -318,7 +316,7 @@ class Motor:
 GPIO.setwarnings(False)
 ```
 
-### info.html
+### Information Web Page
 
 ```html
 <!DOCTYPE html>
@@ -344,7 +342,7 @@ GPIO.setwarnings(False)
 </html>
 ```
 
-### index.html
+### Control Web Page
 
 ```html
 <!DOCTYPE html>
@@ -482,7 +480,7 @@ GPIO.setwarnings(False)
 </body>
 </html>
 ```
-### Start.py
+### Main Function Code
 
 ```python
 from bottle import template, get, run, post, request
@@ -553,4 +551,6 @@ finally:
 
 ## Reference
 
-> [Obstacles Avoiding Smart Car Using Arduino - Hackster.io](https://www.hackster.io/1NextPCB/obstacles-avoiding-smart-car-using-arduino-34e2bb)
+1. [Obstacles Avoiding Smart Car Using Arduino - Hackster.io](https://www.hackster.io/1NextPCB/obstacles-avoiding-smart-car-using-arduino-34e2bb)
+
+2. https://raspberrytips.com/install-camera-raspberry-pi/
