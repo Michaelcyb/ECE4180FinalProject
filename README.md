@@ -54,97 +54,36 @@ The central control unit is Raspberry Pi 3. Our deliver car is driven by two whe
 
 #### Top
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Top.jpg" alt="Top" style="zoom:10%;" />
+![image](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Top.jpg)
 
 #### Front
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Front.jpg" alt="Front" style="zoom:10%;" />
+![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Front.jpg" alt="Front" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Front.jpg)
 
 #### Back
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Back.jpg" alt="Back" style="zoom:10%;" />
+![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Back.jpg" alt="Back" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Back.jpg)
 
 #### Left
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Left.jpg" alt="Left" style="zoom:10%;" />
+![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Left.jpg" alt="Left" style="zoom:10%;" />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Left.jpg)
 
 #### Right
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Right.jpg" alt="Right" style="zoom:10%;" />
-
+![<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\Right.jpg" alt="Right" style="zoom:10%;" />
+](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/Right.jpg)
 ### Control and Information Page
 
-<img src="E:\Georgia Tech\ECE 4180 Embedded Systems Design\Final Project\ControlPage.png" alt="ControlPage" style="zoom:45%;" />
+![<img src="https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/ControlPage.png />](https://github.com/Michaelcyb/ECE4180FinalProject/blob/main/Pictures/ControlPage.png)
 
 ## Source Code
-
-### Start.py
-
-```python
-from bottle import get, post, run, request, template
-from CarControl import Car
-import RPi.GPIO as GPIO
-
-car = Car()
-
-def handle_event(status):
-    """
-    Handles car control events based on the given status.
-    Args:
-        status (str): The command to control the car.
-    """
-    print(f"Event: {status}")
-    if status == "forward":
-        car.forward()
-    elif status == "backward":
-        car.backward()
-    elif status == "turnLeft":
-        car.turn_left()
-    elif status == "turnRight":
-        car.turn_right()
-    elif status == "stop":
-        car.stop()
-
-@get("/")
-def index():
-    """
-    Serves the index page.
-    """
-    print("Requesting index.html")
-    return template("index.html")
-
-@post("/cmd")
-def cmd():
-    """
-    Handles POST requests to control the car.
-    """
-    command = request.body.read().decode()
-    handle_event(command)
-    return "OK"
-
-@get("/info")
-def info():
-    """
-    Serves the car information page.
-    """
-    print("Updating status information")
-    return template("info.html", speed=car.get_speed(), distance=car.get_distance())
-
-# Start the web server
-try:
-    run(host='172.20.10.3', port=8088, debug=False)
-finally:
-    car.cleanup()
-    GPIO.setwarnings(False)
-
-```
 
 ### CarControl.py
 
 ```python
-import RPi.GPIO as GPIO
-from MotorControl import Motor
 from Distance import Measure
+from MotorControl import Motor
+import RPi.GPIO as GPIO
 
 class Car:
     """
@@ -542,6 +481,66 @@ GPIO.setwarnings(False)
     </script>
 </body>
 </html>
+```
+### Start.py
+
+```python
+from bottle import template, get, run, post, request
+import RPi.GPIO as GPIO
+from CarControl import Car
+
+car = Car()
+
+def handle_event(status):
+    """
+    Handles car control events based on the given status.
+    Args:
+        status (str): The command to control the car.
+    """
+    print(f"Event: {status}")
+    if status == "forward":
+        car.forward()
+    elif status == "backward":
+        car.backward()
+    elif status == "turnLeft":
+        car.turn_left()
+    elif status == "turnRight":
+        car.turn_right()
+    elif status == "stop":
+        car.stop()
+
+@get("/")
+def index():
+    """
+    Serves the index page.
+    """
+    print("Requesting index.html")
+    return template("index.html")
+
+@post("/cmd")
+def cmd():
+    """
+    Handles POST requests to control the car.
+    """
+    command = request.body.read().decode()
+    handle_event(command)
+    return "OK"
+
+@get("/info")
+def info():
+    """
+    Serves the car information page.
+    """
+    print("Updating status information")
+    return template("info.html", speed=car.get_speed(), distance=car.get_distance())
+
+# Start the web server
+try:
+    run(host='172.20.10.3', port=8088, debug=False)
+finally:
+    car.cleanup()
+    GPIO.setwarnings(False)
+
 ```
 
 ## Future Improvements
